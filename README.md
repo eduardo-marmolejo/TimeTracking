@@ -2,15 +2,13 @@
 
 Aplicación de escritorio para Windows que registra y calcula el tiempo de trabajo por proyecto y por usuario. La interfaz es una web local (HTML/CSS/JavaScript) alojada dentro de una ventana WinForms mediante WebView2, y todos los datos se guardan en una base de datos SQLite que vive junto al ejecutable: **no requiere internet, servidor ni instalación**.
 
-> Versión actual: **1.0.0** · Licencia MIT · Autor: Eduardo Marmolejo Ornelas
-
 ---
 
 ## Descripción
 
 Time Tracking nace para sustituir las hojas de cálculo de control de horas por una herramienta de escritorio sencilla y portable. Permite dar de alta proyectos, abrirlos y anotar cada jornada con hora de inicio, hora de fin, descanso y observaciones; el programa valida los datos, calcula el tiempo invertido y ofrece totales, búsqueda y exportación en PDF. También puede importar el historial de guardados de Tekla Structures (*Save History*) para reconstruir las jornadas automáticamente.
 
-Todo se ejecuta en local. La base de datos y las copias de seguridad se crean en la misma carpeta que `Time Tracking.exe`, de modo que la aplicación se puede llevar en una memoria USB o compartir descomprimida.
+Todo se ejecuta en local. La base de datos y las copias de seguridad se crean en la misma carpeta que `Time Tracking.exe`.
 
 ---
 
@@ -67,34 +65,12 @@ Todo se ejecuta en local. La base de datos y las copias de seguridad se crean en
 ## Instalación
 
 1. Entra en [Releases](https://github.com/eduardo-marmolejo/TimeTracking/releases/latest) y descarga `TimeTracking-1.0.0-win-x64.zip`.
-2. Descomprime el ZIP en una carpeta con permisos de escritura (por ejemplo `C:\TimeTracking` o una unidad USB). No hace falta instalador ni permisos de administrador.
-3. Ejecuta `Time Tracking.exe`.
-4. En el primer arranque la aplicación crea `TimeTracking.db` y la carpeta `backups/` junto al ejecutable, y pide el nombre del usuario.
+2. Descomprime el ZIP en una carpeta con permisos de escritura (por ejemplo `C:\Apps\TimeTracking`). No hace falta instalador ni permisos de administrador.
+3. Realiza un acceso directo en el escritorio de `Time Tracking.exe`.
+4. Ejecuta el programa.
+5. En el primer arranque la aplicación crea `TimeTracking.db` y la carpeta `backups/` junto al ejecutable, y pide el nombre del usuario.
 
 Para actualizar, cierra la aplicación, sustituye los archivos por los de la nueva versión y conserva `TimeTracking.db` y `backups/`.
-
----
-
-## Compilación
-
-Requisitos: .NET 10 SDK y, para publicar, la misma máquina Windows.
-
-```powershell
-git clone https://github.com/eduardo-marmolejo/TimeTracking.git
-cd TimeTracking
-
-# Restaurar y compilar
-dotnet restore
-dotnet build TimeTacking.slnx -c Release
-
-# Publicar (framework-dependent)
-dotnet publish "Time Tacking\Time Tacking.csproj" -c Release -o publish
-
-# Empaquetar para un release
-Compress-Archive -Path publish\* -DestinationPath TimeTracking-1.0.0-win-x64.zip
-```
-
-El resultado queda en `publish\`, con `Time Tracking.exe` como punto de entrada. La carpeta `web\` se copia junto al ejecutable y se sirve desde el host virtual interno `app.local`.
 
 ---
 
@@ -198,10 +174,7 @@ Time Tacking/
 
 ## Autor
 
-**Eduardo Marmolejo Ornelas**
-- GitHub: [@eduardo-marmolejo](https://github.com/eduardo-marmolejo)
-- Correo: eduardomarmolejo.dev00@gmail.com
-
+**Eduardo Marmolejo Ornelas** - 2026
 ---
 
 ## Licencia
