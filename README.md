@@ -175,7 +175,6 @@ Time Tacking/
 ## Autor
 
 **Eduardo Marmolejo Ornelas** - 2026
----
 
 ## Licencia
 
