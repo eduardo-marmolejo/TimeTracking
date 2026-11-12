@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Time Tracking - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="tt-header">
+    <div class="tt-header-left">
+        <a class="tt-brand" href="index.html">
+            <!-- img src="././img/TimeTracking-LogoLight.png" alt="Time Tracking" width="150" -->
+            <img class="tt-logo tt-logo-light" src="./img/TimeTracking-LogoLight.png" alt="Time Tracking" width="150">
+            <img class="tt-logo tt-logo-dark" src="./img/TimeTracking-LogoDark.png" alt="Time Tracking" width="150">
+            <!--svg class="tt-logo-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M12 7v5l3 3" stroke-linecap="round"></path>
+    </svg-->
+            <!--Time Tracking -->
+        </a>
+      <a class="tt-nav-pill" href="index.html" data-i18n="nav_dashboard">Dashboard</a>
+    </div>
+    <div class="tt-header-right">
+        <div class="tt-theme-toggle-wrap">
+            <input type="checkbox" id="theme-toggle" class="tt-theme-toggle-input">
+            <label for="theme-toggle" class="tt-theme-toggle-label" aria-label="Cambiar tema">
+                <span class="tt-theme-toggle-slider"></span>
+                <svg class="tt-theme-icon tt-theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+                <svg class="tt-theme-icon tt-theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+            </label>
+        </div>
+
+      <select id="lang-selector" class="tt-lang-select">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
+
+      <div class="tt-settings-wrap" style="position:relative; display:flex; align-items:center;">
+        <button class="tt-icon-btn" id="btn-settings" type="button" title="Configuración" aria-label="Configuración" data-i18n-title="settings_title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <div id="settings-menu" class="tt-dropdown" style="display:none; position:absolute; right:0; top:calc(100% + 8px); background:var(--color-surface); border:1px solid var(--color-border); border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.08); min-width:190px; overflow:hidden; z-index:100;">
+          <button id="btn-change-name" class="tt-dropdown-item" type="button" data-i18n="settings_change_name">Cambiar nombre</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="tt-main">
+    <div class="tt-page-header">
+      <h1 class="tt-greeting-title" id="hero-greeting">¡Buenos días!</h1>
+      <button class="tt-btn tt-btn-primary" id="open-new-project-btn" type="button" data-i18n="btn_new_project">
+        Nuevo proyecto
+      </button>
+    </div>
+    <div class="tt-section-header">
+      <div class="tt-section-title-wrap">
+        <h2 class="tt-section-title" data-i18n="section_my_projects">Mis proyectos</h2>
+        <span class="tt-badge-count" id="project-count">0</span>
+      </div>
+      <div class="tt-filter-container">
+        <svg class="tt-search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5" stroke-linecap="round"></path>
+        </svg>
+        <input class="tt-filter-input" data-i18n-placeholder="filter_placeholder" placeholder="Filtrar proyectos..." type="text">
+      </div>
+    </div>
+    <div class="tt-projects-grid" id="projects-grid"></div>
+    <!-- Interactive Project Creation Modal (Hidden by default, triggered via JS) -->
+    <div class="tt-modal-backdrop hidden" id="new-project-modal">
+      <div class="tt-modal">
+        <div class="tt-modal-header">
+          <h3 class="tt-modal-title" data-i18n="modal_create_title">
+            Crear nuevo proyecto
+          </h3>
+        </div>
+        <!--form>
+          <div class="tt-modal-body">
+            <div class="tt-label-row">
+              <label class="tt-label">Nombre del proyecto</label>
+            </div>
+            <input class="tt-input-text" placeholder="Ej. Infraestructura Cloud AWS" required="" type="text">
+            <div class="tt-form-grid" style="margin-top: 12px;">
+              <div>
+                <div class="tt-label-row">
+                  <label class="tt-label">Presupuesto estimado (hrs)</label>
+                </div>
+                <input class="tt-input-text" placeholder="80" type="number">
+              </div>
+              <div>
+                <div class="tt-label-row">
+                  <label class="tt-label">Categoría</label>
+                </div>
+                <select class="tt-input-text">
+                  <option>Desarrollo Web</option>
+                  <option>Automatización</option>
+                  <option>Software de Escritorio</option>
+                  <option>DevOps / Infraestructura</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top: 12px;">
+              <div class="tt-label-row">
+                <label class="tt-label">Descripción concisa</label>
+              </div>
+              <textarea class="tt-input-text" placeholder="Detalles de entregables, repositorio y especificaciones técnicas..." rows="3"></textarea>
+            </div>
+          </div>
+          <div class="tt-modal-actions">
+            <button class="tt-btn tt-btn-secondary" id="cancel-modal-btn" type="button">Cancelar</button>
+            <button class="tt-btn tt-btn-primary" type="submit">Guardar proyecto</button>
+          </div>
+        </form -->
+
+        <form id="create-project-form">
+          <div class="tt-modal-body">
+            <!-- Campo 1: Nombre del Proyecto (Obligatorio / Focused State) -->
+            <div class="tt-form-group">
+              <div class="tt-label-row">
+                <label class="tt-label" for="project-name" data-i18n="modal_project_name">
+                  Nombre del proyecto
+                  <span style="color:var(--color-danger-text);">*</span>
+                </label>
+                <span class="tt-badge-required" data-i18n="modal_required">Obligatorio</span>
+              </div>
+              <div class="tt-input-icon-wrap">
+                <input class="tt-input-text" id="project-name" name="projectName" placeholder="Ej. Rediseño Web Corporativa" type="text" autocomplete="off">
+              </div>
+              <div class="tt-input-help" id="project-help" data-i18n="modal_project_help"></div>
+            </div>
+          </div>
+          <!-- Modal Actions Footer -->
+          <div class="tt-modal-actions">
+            <button class="tt-btn tt-btn-secondary" id="btn-cancel-modal" type="button" data-i18n="modal_cancel">Cancelar</button>
+            <button class="tt-btn tt-btn-primary" id="btn-submit-project" type="submit" data-i18n="modal_create">
+              Crear proyecto
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal primer uso: nombre de usuario -->
+  <div id="user-modal" class="tt-modal-backdrop" style="display:none;">
+    <div class="tt-modal" role="dialog" aria-modal="true" aria-labelledby="user-modal-title">
+      <div class="tt-modal-header">
+        <h3 class="tt-modal-title" id="user-modal-title" data-i18n="modal_user_title">¿Cómo te llamas?</h3>
+      </div>
+      <form id="user-form">
+        <div class="tt-modal-body">
+          <div class="tt-form-group">
+            <div class="tt-label-row">
+              <label class="tt-label" for="user-name-input" data-i18n="modal_user_name">Tu nombre</label>
+              <span class="tt-badge-required" data-i18n="modal_required">Obligatorio</span>
+            </div>
+            <div class="tt-input-icon-wrap">
+              <input class="tt-input-text" id="user-name-input" name="userName" type="text" maxlength="40" autocomplete="off">
+            </div>
+            <div class="tt-input-help" id="user-help" data-i18n="modal_user_help">Así te saludaré en el dashboard.</div>
+          </div>
+        </div>
+        <div class="tt-modal-actions">
+          <button class="tt-btn" id="btn-cancel-user" type="button" style="display:none;" data-i18n="modal_cancel">Cancelar</button>
+          <button class="tt-btn tt-btn-primary" id="btn-submit-user" type="submit" data-i18n="modal_user_save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal editar nombre de proyecto -->
+  <div id="project-edit-modal" class="tt-modal-backdrop" style="display:none;">
+    <div class="tt-modal" role="dialog" aria-modal="true" aria-labelledby="project-edit-modal-title">
+      <div class="tt-modal-header">
+        <h3 class="tt-modal-title" id="project-edit-modal-title" data-i18n="edit_project_name_title">Editar nombre del proyecto</h3>
+      </div>
+      <form id="project-edit-form">
+        <div class="tt-modal-body">
+          <div class="tt-form-group">
+            <div class="tt-label-row">
+              <label class="tt-label" for="project-edit-input" data-i18n="modal_project_name">Nombre del proyecto</label>
+              <span class="tt-badge-required" data-i18n="modal_required">Obligatorio</span>
+            </div>
+            <div class="tt-input-icon-wrap">
+              <input class="tt-input-text" id="project-edit-input" name="projectName" type="text" autocomplete="off">
+            </div>
+            <div class="tt-input-help" id="project-edit-help"></div>
+          </div>
+        </div>
+        <div class="tt-modal-actions">
+          <button class="tt-btn" id="btn-cancel-project-edit" type="button" data-i18n="modal_cancel">Cancelar</button>
+          <button class="tt-btn tt-btn-primary" id="btn-submit-project-edit" type="submit" data-i18n="edit_project_name_save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/bridge.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

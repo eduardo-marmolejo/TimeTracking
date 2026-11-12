@@ -1,0 +1,33 @@
+# ============================================================
+# Time Tracking - archivos excluidos del repositorio
+# ============================================================
+
+# --- Visual Studio / IDE ---
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Compilación ---
+[Bb]in/
+[Oo]bj/
+
+# --- Publicación y paquetes de release ---
+publish/
+*.zip
+
+# --- Documentación interna y reportes de trabajo ---
+reports/
+.agents/
+
+# --- Base de datos y copias de seguridad ---
+TimeTracking.db
+*.db
+*.db-shm
+*.db-wal
+backups/
+
+# --- Varios del sistema ---
+Thumbs.db
+desktop.ini
