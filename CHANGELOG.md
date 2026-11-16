@@ -2,6 +2,12 @@
 
 Todos los cambios relevantes de Time Tracking. El formato sigue las ideas de [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el versionado es [SemVer](https://semver.org/lang/es/).
 
+## [1.0.1] - 2026-11-16
+
+### Cambiado
+- El listado de registros de cada proyecto se muestra ahora en orden ascendente (del más antiguo al más reciente): el registro más reciente queda al final de la tabla. El cambio afecta por igual a la tabla, a la búsqueda de registros y a la exportación a PDF, porque todas usan el mismo listado.
+- Los binarios pasan a la versión **1.0.1** y la *Product version* del ejecutable muestra solo `1.0.1`, sin el hash del commit.
+
 ## [1.0.0] - 2026-11-11
 
 Primera versión pública. Recoge la evolución completa del proyecto: migración de la maqueta web a una aplicación de escritorio con persistencia real, internacionalización, temas, exportación e importación de datos.

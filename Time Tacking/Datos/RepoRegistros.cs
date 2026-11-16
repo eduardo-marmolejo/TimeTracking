@@ -5,7 +5,7 @@ namespace Time_Tacking.Datos
 {
     public static class RepoRegistros
     {
-        /// <summary>Registros de un proyecto, del más reciente al más antiguo.</summary>
+        /// <summary>Registros de un proyecto, del más antiguo al más reciente.</summary>
         public static List<Registro> Listar(long idProyecto)
         {
             using var con = BaseDatos.Abrir();
@@ -14,7 +14,7 @@ namespace Time_Tacking.Datos
                 SELECT idRegistro, idProject, Fecha, horaInicio, horaFinal, horaDescanso, Remarks
                 FROM RegistroTiempo
                 WHERE idProject = @p
-                ORDER BY Fecha DESC, horaInicio DESC, idRegistro DESC;";
+                ORDER BY Fecha ASC, horaInicio ASC, idRegistro ASC;";
             cmd.Parameters.AddWithValue("@p", idProyecto);
 
             var lista = new List<Registro>();

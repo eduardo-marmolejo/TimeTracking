@@ -64,7 +64,7 @@ Todo se ejecuta en local. La base de datos y las copias de seguridad se crean en
 
 ## Instalación
 
-1. Entra en [Releases](https://github.com/eduardo-marmolejo/TimeTracking/releases/latest) y descarga `TimeTracking-1.0.0-win-x64.zip`.
+1. Entra en [Releases](https://github.com/eduardo-marmolejo/TimeTracking/releases/latest) y descarga `TimeTracking-1.0.1-win-x64.zip`.
 2. Descomprime el ZIP en una carpeta con permisos de escritura (por ejemplo `C:\Apps\TimeTracking`). No hace falta instalador ni permisos de administrador.
 3. Realiza un acceso directo en el escritorio de `Time Tracking.exe`.
 4. Ejecuta el programa.
